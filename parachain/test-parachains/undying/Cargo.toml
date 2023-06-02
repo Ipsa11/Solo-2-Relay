@@ -1,0 +1,28 @@
+[package]
+name = "test-parachain-undying"
+description = "Test parachain for zombienet integration tests"
+build = "build.rs"
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+parachain = { package = "polkadot-parachain", path = "../../", default-features = false, features = [ "wasm-api" ] }
+parity-scale-codec = { version = "3.1.5", default-features = false, features = ["derive"] }
+sp-std = { version = "5.0.0", default-features = false, path = "../../../primitives/std" }
+tiny-keccak = { version = "2.0.2", features = ["keccak"] }
+dlmalloc = { version = "0.2.4", features = [ "global" ] }
+log = { version = "0.4.17", default-features = false }
+
+# We need to make sure the global allocator is disabled until we have support of full substrate externalities
+sp-io = { version = "7.0.0", path = "../../../primitives/io" }
+
+
+[build-dependencies]
+substrate-wasm-builder = { version = "5.0.0-dev", path = "../../../utils/wasm-builder" }
+
+[features]
+default = [ "std" ]
+std = [
+	"parachain/std",
+	"sp-std/std",
+]

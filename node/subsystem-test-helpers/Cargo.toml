@@ -1,0 +1,21 @@
+[package]
+name = "polkadot-node-subsystem-test-helpers"
+description = "Subsystem traits and message definitions"
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+async-trait = "0.1.57"
+futures = "0.3.21"
+parking_lot = "0.12.0"
+polkadot-node-subsystem = { path = "../subsystem" }
+polkadot-node-subsystem-util = { path = "../subsystem-util" }
+polkadot-primitives = { path = "../../primitives2" }
+sp-core = {version = "7.0.0", path = "../../primitives/core" }
+sp-keystore = {  version = "0.13.0", path = "../../primitives/keystore"}
+sc-keystore = { version = "4.0.0-dev", path = "../../client/keystore" }
+sp-keyring = { version = "7.0.0", path = "../../primitives/keyring" }
+sp-application-crypto = {  version = "7.0.0", path = "../../primitives/application-crypto" }
+
+[dev-dependencies]
+polkadot-overseer = { path = "../overseer" }

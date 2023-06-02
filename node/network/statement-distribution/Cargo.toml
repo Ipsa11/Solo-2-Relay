@@ -1,0 +1,35 @@
+[package]
+name = "polkadot-statement-distribution"
+description = "Statement Distribution Subsystem"
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+futures = "0.3.21"
+gum = { package = "tracing-gum", path = "../../gum" }
+polkadot-primitives = { path = "../../../primitives2" }
+sp-staking = { version = "4.0.0-dev", default-features = false, path = "../../../primitives/staking" }
+sp-keystore = { version = "0.13.0", path = "../../../primitives/keystore"}
+polkadot-node-subsystem = {path = "../../subsystem" }
+polkadot-node-primitives = { path = "../../primitives" }
+polkadot-node-subsystem-util = { path = "../../subsystem-util" }
+polkadot-node-network-protocol = { path = "../../network/protocol" }
+arrayvec = "0.5.2"
+indexmap = "1.9.1"
+parity-scale-codec = { version = "3.1.5", default-features = false, features = ["derive"] }
+thiserror = "1.0.31"
+fatality = "0.0.6"
+
+[dev-dependencies]
+polkadot-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+assert_matches = "1.4.0"
+sp-authority-discovery = {version = "4.0.0-dev", path = "../../../primitives/authority-discovery" }
+sp-keyring = { version = "7.0.0", path = "../../../primitives/keyring" }
+sp-core = { version = "7.0.0", path = "../../../primitives/core" }
+sp-application-crypto = { version = "7.0.0", path = "../../../primitives/application-crypto" }
+sp-keystore = { version = "0.13.0", path = "../../../primitives/keystore"  }
+sp-tracing = { version = "6.0.0", path = "../../../primitives/tracing" }
+sc-keystore = { version = "4.0.0-dev", path = "../../../client/keystore" }
+sc-network = {  version = "0.10.0-dev", path = "../../../client/network" }
+futures-timer = "3.0.2"
+polkadot-primitives-test-helpers = { path = "../../../primitives2/test-helpers" }

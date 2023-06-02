@@ -1,0 +1,23 @@
+[package]
+name = "polkadot-performance-test"
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+thiserror = "1.0.31"
+quote = "1.0.20"
+env_logger = "0.9"
+log = "0.4"
+
+polkadot-node-core-pvf = { path = "../../core/pvf" }
+polkadot-erasure-coding = { path = "../../../erasure-coding" }
+polkadot-node-primitives = { path = "../../primitives" }
+
+polkadot-runtime = { path = "../../../runtime2/polkadot" }
+
+[[bin]]
+name = "gen-ref-constants"
+path = "src/gen_ref_constants.rs"
+
+[features]
+runtime-benchmarks = ["polkadot-runtime/runtime-benchmarks"]

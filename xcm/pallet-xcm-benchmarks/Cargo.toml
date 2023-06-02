@@ -1,0 +1,52 @@
+[package]
+name = "pallet-xcm-benchmarks"
+version = "0.9.36"
+edition = "2021"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "3.0.0", default-features = false }
+scale-info = { version = "2.1.2", default-features = false, features = ["derive"] }
+frame-support = { version = "4.0.0-dev", default-features = false, path = "../../frame/support" }
+frame-system = { version = "4.0.0-dev", default-features = false, path = "../../frame/system" }
+
+sp-std = { version = "5.0.0", default-features = false, path = "../../primitives/std" }
+sp-runtime = { version = "7.0.0", default-features = false, path = "../../primitives/runtime" }
+xcm-executor = { path = "../xcm-executor", default-features = false }
+frame-benchmarking = {default-features = false, version = "4.0.0-dev", path = "../../frame/benchmarking" }
+xcm = { path = "..", default-features = false }
+log = "0.4.17"
+
+[dev-dependencies]
+pallet-balances = { version = "4.0.0-dev", path = "../../frame/balances" }
+pallet-assets = { version = "4.0.0-dev", path = "../../frame/assets/" }
+sp-core = { version = "7.0.0", path = "../../primitives/core" }
+sp-io = { version = "7.0.0", path = "../../primitives/io" }
+sp-tracing = { version = "6.0.0", path = "../../primitives/tracing" }
+xcm-builder = { path = "../xcm-builder" }
+xcm = { path = ".." }
+# temp
+pallet-xcm = { path = "../pallet-xcm" }
+polkadot-runtime-common = { path = "../../runtime2/common" }
+# westend-runtime = { path = "../../runtime/westend", features = ["runtime-benchmarks"] }
+polkadot-primitives = { path = "../../primitives2" }
+
+[features]
+default = ["std"]
+std = [
+	"codec/std",
+	"frame-benchmarking/std",
+	"frame-support/std",
+	"frame-system/std",
+	"sp-runtime/std",
+	"sp-std/std"
+]
+runtime-benchmarks = [
+	"xcm/runtime-benchmarks",
+	"xcm-executor/runtime-benchmarks",
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+]

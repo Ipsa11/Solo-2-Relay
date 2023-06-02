@@ -1,0 +1,46 @@
+[package]
+name = "pallet-xcm"
+version = "0.9.36"
+edition = "2021"
+
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "3.0.0", default-features = false, features = ["derive"] }
+scale-info = { version = "2.1.2", default-features = false, features = ["derive"] }
+serde = { version = "1.0.137", optional = true, features = ["derive"] }
+log = { version = "0.4.17", default-features = false }
+
+sp-std = { version = "5.0.0", default-features = false, path = "../../primitives/std" }
+sp-runtime = { version = "7.0.0", default-features = false, path = "../../primitives/runtime" }
+sp-core = { version = "7.0.0",default-features = false, path = "../../primitives/core" }
+frame-support = { version = "4.0.0-dev", default-features = false, path = "../../frame/support" }
+frame-system = { version = "4.0.0-dev", default-features = false, path = "../../frame/system" }
+
+xcm = { path = "..", default-features = false }
+xcm-executor = { path = "../xcm-executor", default-features = false }
+
+[dev-dependencies]
+pallet-balances = { version = "4.0.0-dev", path = "../../frame/balances" }
+polkadot-runtime-parachains = { path = "../../runtime2/parachains" }
+sp-io = { version = "7.0.0",default-features = false, path = "../../primitives/io" }
+xcm-builder = { path = "../xcm-builder" }
+polkadot-parachain = { path = "../../parachain" }
+
+[features]
+default = ["std"]
+std = [
+	"codec/std",
+	"scale-info/std",
+	"serde",
+	"sp-std/std",
+	"sp-core/std",
+	"sp-runtime/std",
+	"frame-support/std",
+	"frame-system/std",
+	"xcm/std",
+	"xcm-executor/std",
+]
+runtime-benchmarks = [
+	"frame-system/runtime-benchmarks"
+]
+try-runtime = ["frame-support/try-runtime"]

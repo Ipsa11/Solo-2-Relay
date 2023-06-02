@@ -1,0 +1,22 @@
+[package]
+name = "polkadot-node-subsystem-types"
+description = "Subsystem traits and message definitions"
+version = "0.9.36"
+edition = "2021"
+[dependencies]
+derive_more = "0.99.17"
+futures = "0.3.21"
+polkadot-primitives = { path = "../../primitives2" }
+polkadot-node-primitives = { path = "../primitives" }
+polkadot-node-network-protocol = { path = "../network/protocol" }
+polkadot-statement-table = { path = "../../statement-table" }
+polkadot-node-jaeger = { path = "../jaeger" }
+orchestra = "0.0.2"
+sc-network = { version = "0.10.0-dev", path = "../../client/network"  }
+sp-api = {version = "4.0.0-dev", path = "../../primitives/api"}
+sp-consensus-babe = { version = "0.10.0-dev", path = "../../primitives/consensus/babe" }
+sp-authority-discovery = {  version = "4.0.0-dev", path = "../../primitives/authority-discovery" }
+smallvec = "1.8.0"
+substrate-prometheus-endpoint = { version = "0.10.0-dev", path = "../../utils/prometheus" }
+thiserror = "1.0.31"
+async-trait = "0.1.57"

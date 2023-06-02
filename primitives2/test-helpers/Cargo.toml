@@ -1,0 +1,12 @@
+[package]
+name = "polkadot-primitives-test-helpers"
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+sp-keyring = { version = "7.0.0", path = "../../primitives/keyring" }
+sp-application-crypto = { package = "sp-application-crypto",  version = "7.0.0", default-features = false, path = "../../primitives/application-crypto" }
+sp-runtime = {version = "7.0.0", path = "../../primitives/runtime" }
+sp-core = { version = "7.0.0", path = "../../primitives/core" , features = ["std"]  }
+polkadot-primitives = { path = "../" }
+rand = "0.8.5"

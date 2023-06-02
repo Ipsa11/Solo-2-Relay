@@ -1,0 +1,29 @@
+[package]
+name = "polkadot-node-core-backing"
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+futures = "0.3.21"
+sp-keystore = { version = "0.13.0", path = "../../../primitives/keystore" }
+polkadot-primitives = { path = "../../../primitives2" }
+polkadot-node-primitives = { path = "../../primitives" }
+polkadot-node-subsystem = {path = "../../subsystem" }
+polkadot-node-subsystem-util = { path = "../../subsystem-util" }
+erasure-coding = { package = "polkadot-erasure-coding", path = "../../../erasure-coding" }
+statement-table = { package = "polkadot-statement-table", path = "../../../statement-table" }
+bitvec = { version = "1.0.0", default-features = false, features = ["alloc"] }
+gum = { package = "tracing-gum", path = "../../gum" }
+thiserror = "1.0.31"
+fatality = "0.0.6"
+
+[dev-dependencies]
+sp-core = { version = "7.0.0", path = "../../../primitives/core" }
+sp-application-crypto = {version = "7.0.0", default-features = false, path = "../../../primitives/application-crypto"  }
+sp-keyring = { version = "7.0.0", path = "../../../primitives/keyring" }
+sc-keystore = {  version = "4.0.0-dev", path = "../../../client/keystore" }
+sp-tracing = { version = "6.0.0", path = "../../../primitives/tracing" }
+futures = { version = "0.3.21", features = ["thread-pool"] }
+assert_matches = "1.4.0"
+polkadot-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+test-helpers = { package = "polkadot-primitives-test-helpers", path = "../../../primitives2/test-helpers" }

@@ -1,0 +1,45 @@
+[package]
+name = "polkadot-node-core-pvf"
+version = "0.9.36"
+edition = "2021"
+
+[[bin]]
+name = "puppet_worker"
+path = "bin/puppet_worker.rs"
+
+[dependencies]
+always-assert = "0.1"
+async-std = { version = "1.11.0", features = ["attributes"] }
+async-process = "1.6.0"
+assert_matches = "1.4.0"
+cpu-time = "1.0.0"
+futures = "0.3.21"
+futures-timer = "3.0.2"
+slotmap = "1.0"
+gum = { package = "tracing-gum", path = "../../gum" }
+pin-project = "1.0.9"
+rand = "0.8.5"
+tempfile = "3.3.0"
+rayon = "1.5.1"
+
+parity-scale-codec = { version = "3.1.5", default-features = false, features = ["derive"] }
+
+polkadot-parachain = { path = "../../../parachain" }
+polkadot-core-primitives = { path = "../../../core-primitives" }
+polkadot-node-metrics = { path = "../../metrics"}
+
+sc-executor = {version = "0.10.0-dev", path = "../../../client/executor" }
+sc-executor-wasmtime = { version = "0.10.0-dev", path = "../../../client/executor/wasmtime"  }
+sc-executor-common = { version = "0.10.0-dev", path = "../../../client/executor/common"  }
+sp-externalities = {version = "0.13.0", path = "../../../primitives/externalities" }
+sp-io = {  version = "7.0.0", path = "../../../primitives/io" }
+sp-core = { version = "7.0.0", path = "../../../primitives/core" }
+sp-wasm-interface = { version = "7.0.0", path = "../../../primitives/wasm-interface"  }
+sp-maybe-compressed-blob = {version = "4.1.0-dev", path = "../../../primitives/maybe-compressed-blob" }
+sp-tracing = { version = "6.0.0", path = "../../../primitives/tracing"}
+
+[dev-dependencies]
+adder = { package = "test-parachain-adder", path = "../../../parachain/test-parachains/adder" }
+halt = { package = "test-parachain-halt", path = "../../../parachain/test-parachains/halt" }
+hex-literal = "0.3.4"
+tempfile = "3.2.0"

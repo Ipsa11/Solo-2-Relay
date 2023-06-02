@@ -1,0 +1,23 @@
+[package]
+name = "polkadot-runtime-metrics"
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+sp-std = { package = "sp-std", version = "5.0.0", default-features = false, path = "../../primitives/std" }
+sp-tracing = { version = "6.0.0", path = "../../primitives/tracing", default-features = false  }
+parity-scale-codec = { version = "3.1.5", default-features = false }
+primitives = { package = "polkadot-primitives", path = "../../primitives2", default-features = false }
+
+bs58 = { version = "0.4.0", default-features = false, features = ["alloc"] }
+
+[features]
+default = ["std"]
+std = [
+	"sp-std/std",
+	"sp-tracing/std",
+    "parity-scale-codec/std",
+    "primitives/std",
+    "bs58/std"
+]
+runtime-metrics = ["sp-tracing/with-tracing"]

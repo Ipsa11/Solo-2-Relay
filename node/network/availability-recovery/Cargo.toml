@@ -1,0 +1,34 @@
+[package]
+name = "polkadot-availability-recovery"
+version = "0.9.36"
+edition = "2021"
+[dependencies]
+futures = "0.3.21"
+lru = "0.8.0"
+rand = "0.8.5"
+fatality = "0.0.6"
+thiserror = "1.0.31"
+gum = { package = "tracing-gum", path = "../../gum" }
+
+polkadot-erasure-coding = { path = "../../../erasure-coding" }
+polkadot-primitives = { path = "../../../primitives2" }
+polkadot-node-primitives = { path = "../../primitives" }
+polkadot-node-subsystem = {path = "../../subsystem" }
+polkadot-node-subsystem-util = { path = "../../subsystem-util" }
+polkadot-node-network-protocol = { path = "../../network/protocol" }
+parity-scale-codec = { version = "3.1.5", default-features = false, features = ["derive"] }
+sc-network = { version = "0.10.0-dev", path = "../../../client/network" }
+
+[dev-dependencies]
+assert_matches = "1.4.0"
+env_logger = "0.9.0"
+futures-timer = "3.0.2"
+log = "0.4.17"
+
+sp-core = { version = "7.0.0", path = "../../../primitives/core" }
+sp-keyring = { version = "7.0.0", path = "../../../primitives/keyring" }
+sp-application-crypto = { version = "7.0.0", path = "../../../primitives/application-crypto" }
+sc-network = { version = "0.10.0-dev", path = "../../../client/network" }
+
+polkadot-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+polkadot-primitives-test-helpers = { path = "../../../primitives2/test-helpers" }

@@ -1,0 +1,25 @@
+[package]
+name = "polkadot-node-core-runtime-api"
+version = "0.9.36"
+edition = "2021"
+[dependencies]
+futures = "0.3.21"
+gum = { package = "tracing-gum", path = "../../gum" }
+lru = "0.8"
+
+sp-consensus-babe = {  version = "0.10.0-dev", path = "../../../primitives/consensus/babe" }
+
+polkadot-primitives = { path = "../../../primitives2" }
+polkadot-node-subsystem = { path = "../../subsystem" }
+polkadot-node-subsystem-types = { path = "../../subsystem-types" }
+polkadot-node-subsystem-util = { path = "../../subsystem-util" }
+
+[dev-dependencies]
+sp-api = { version = "4.0.0-dev", path = "../../../primitives/api" }
+sp-authority-discovery = {version = "4.0.0-dev",  path = "../../../primitives/authority-discovery" }
+sp-core = { version = "7.0.0", path = "../../../primitives/core" }
+sp-keyring = { version = "7.0.0", path = "../../../primitives/keyring" }
+futures = { version = "0.3.21", features = ["thread-pool"] }
+polkadot-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+polkadot-node-primitives = { path = "../../primitives" }
+test-helpers = { package = "polkadot-primitives-test-helpers", path = "../../../primitives2/test-helpers" }

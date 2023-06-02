@@ -1,0 +1,22 @@
+[package]
+name = "polkadot-node-core-chain-api"
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+futures = "0.3.21"
+gum = { package = "tracing-gum", path = "../../gum" }
+sp-blockchain = { version = "4.0.0-dev", path = "../../../primitives/blockchain"  }
+polkadot-primitives = { path = "../../../primitives2" }
+polkadot-node-subsystem = {path = "../../subsystem" }
+polkadot-node-subsystem-util = { path = "../../subsystem-util" }
+sc-client-api = {version = "4.0.0-dev", path = "../../../client/api" }
+sc-consensus-babe = { version = "0.10.0-dev", path = "../../../client/consensus/babe"  }
+
+[dev-dependencies]
+futures = { version = "0.3.21", features = ["thread-pool"] }
+maplit = "1.0.2"
+parity-scale-codec = "3.1.5"
+polkadot-node-primitives = { path = "../../primitives" }
+polkadot-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+sp-core = {version = "7.0.0", path = "../../../primitives/core" }

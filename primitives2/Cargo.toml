@@ -1,0 +1,52 @@
+[package]
+name = "polkadot-primitives"
+version = "0.9.36"
+edition = "2021"
+
+
+[dependencies]
+bitvec = { version = "1.0.0", default-features = false, features = ["alloc"] }
+hex-literal = "0.3.4"
+parity-scale-codec = { version = "3.1.5", default-features = false, features = ["bit-vec", "derive"] }
+scale-info = { version = "2.1.2", default-features = false, features = ["bit-vec", "derive"] }
+serde = { version = "1.0.137", optional = true, features = ["derive"] }
+
+application-crypto = { package = "sp-application-crypto",  version = "7.0.0", default-features = false, path = "../primitives/application-crypto" }
+inherents = { package = "sp-inherents", version = "4.0.0-dev", path = "../primitives/inherents", default-features = false  }
+primitives = { package = "sp-core",version = "7.0.0", default-features = false, path = "../primitives/core" }
+runtime_primitives = { package = "sp-runtime", version = "7.0.0", default-features = false, path = "../primitives/runtime" }
+sp-api = { version = "4.0.0-dev", path = "../primitives/api",default-features = false  }
+sp-arithmetic = { version = "6.0.0", path = "../primitives/arithmetic" , default-features = false }
+sp-authority-discovery = { version = "4.0.0-dev", path = "../primitives/authority-discovery", default-features = false }
+sp-consensus-slots = { version = "0.10.0-dev", path = "../primitives/consensus/slots", default-features = false }
+sp-io = { version = "7.0.0", path = "../primitives/io" , default-features = false }
+sp-keystore = {version = "0.13.0", path = "../primitives/keystore", optional = true  }
+sp-staking = {version = "4.0.0-dev", default-features = false, path = "../primitives/staking" }
+sp-std = { package = "sp-std", version = "5.0.0", default-features = false, path = "../primitives/std" }
+
+polkadot-core-primitives = { path = "../core-primitives", default-features = false }
+polkadot-parachain = { path = "../parachain", default-features = false }
+
+[features]
+default = ["std"]
+std = [
+	"application-crypto/std",
+	"parity-scale-codec/std",
+	"scale-info/std",
+	"primitives/std",
+	"inherents/std",
+	"sp-api/std",
+	"sp-authority-discovery/std",
+	"sp-consensus-slots/std",
+	"sp-keystore",
+	"sp-std/std",
+	"sp-io/std",
+	"sp-staking/std",
+	"sp-arithmetic/std",
+	"runtime_primitives/std",
+	"serde",
+	"polkadot-parachain/std",
+	"polkadot-core-primitives/std",
+	"bitvec/std",
+]
+runtime-benchmarks = []

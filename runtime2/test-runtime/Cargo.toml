@@ -1,0 +1,134 @@
+[package]
+name = "polkadot-test-runtime"
+build = "build.rs"
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+bitvec = { version = "1.0.0", default-features = false, features = ["alloc"] }
+parity-scale-codec = { version = "3.1.5", default-features = false, features = ["derive"] }
+log = { version = "0.4.17", default-features = false }
+rustc-hex = { version = "2.1.0", default-features = false }
+scale-info = { version = "2.1.2", default-features = false, features = ["derive"] }
+serde = { version = "1.0.137", default-features = false }
+serde_derive = { version = "1.0.117", optional = true }
+smallvec = { version = "1.8.0", optional = true }
+
+authority-discovery-primitives = { package = "sp-authority-discovery", version = "4.0.0-dev", path = "../../primitives/authority-discovery", default-features = false  }
+babe-primitives = { package = "sp-consensus-babe", version = "0.10.0-dev", path = "../../primitives/consensus/babe", default-features = false  }
+beefy-primitives = {version = "4.0.0-dev", path = "../../primitives/beefy", default-features = false, package = "sp-beefy"  }
+sp-api = {version = "4.0.0-dev", path = "../../primitives/api",default-features = false  }
+inherents = { package = "sp-inherents", version = "4.0.0-dev", path = "../../primitives/inherents", default-features = false }
+offchain-primitives = { package = "sp-offchain", version = "4.0.0-dev", path = "../../primitives/offchain", default-features = false  }
+sp-std = { version = "5.0.0", default-features = false, path = "../../primitives/std" }
+sp-io = { version = "7.0.0", path = "../../primitives/io" , default-features = false }
+sp-runtime = { version = "7.0.0", default-features = false, path = "../../primitives/runtime"}
+sp-staking = { version = "4.0.0-dev", default-features = false, path = "../../primitives/staking"  }
+sp-core = {version = "7.0.0", default-features = false, path = "../../primitives/core"  }
+sp-mmr-primitives = { version = "4.0.0-dev", path = "../../primitives/merkle-mountain-range", default-features = false  }
+sp-session = {version = "4.0.0-dev", default-features = false, path = "../../primitives/session" }
+sp-version = {version = "5.0.0", default-features = false, path = "../../primitives/version"  }
+frame-election-provider-support = { version = "4.0.0-dev", default-features = false, path = "../../frame/election-provider-support" }
+tx-pool-api = { package = "sp-transaction-pool", version = "4.0.0-dev", path = "../../primitives/transaction-pool", default-features = false }
+block-builder-api = {package = "sp-block-builder", version = "4.0.0-dev", path = "../../primitives/block-builder", default-features = false  }
+
+pallet-authority-discovery = { version = "4.0.0-dev", default-features = false, path = "../../frame/authority-discovery" }
+pallet-authorship = { version = "4.0.0-dev", default-features = false, path = "../../frame/authorship" }
+pallet-babe = { version = "4.0.0-dev", default-features = false, path = "../../frame/babe" }
+pallet-balances = { version = "4.0.0-dev", default-features = false, path = "../../frame/balances" }
+pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, path = "../../frame/transaction-payment" }
+pallet-transaction-payment-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, path = "../../frame/transaction-payment/rpc/runtime-api/" }
+frame-executive = {  version = "4.0.0-dev", default-features = false, path = "../../frame/executive" }
+pallet-grandpa = { version = "4.0.0-dev", default-features = false, path = "../../frame/grandpa" }
+pallet-indices = { version = "4.0.0-dev", default-features = false, path = "../../frame/indices" }
+pallet-offences = { version = "4.0.0-dev", default-features = false, path = "../../frame/offences" }
+pallet-session = { version = "4.0.0-dev", path = "../../frame/session", default-features = false }
+frame-support = { version = "4.0.0-dev", default-features = false, path = "../../frame/support" }
+frame-system = { version = "4.0.0-dev", default-features = false, path = "../../frame/system" }
+pallet-staking = { version = "4.0.0-dev", default-features = false, path = "../../frame/staking" }
+pallet-staking-reward-curve = { version = "4.0.0-dev",default-features = false , path = "../../frame/staking/reward-curve" }
+frame-system-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, path = "../../frame/system/rpc/runtime-api/" }
+test-runtime-constants = { package = "test-runtime-constants", path = "./constants", default-features = false }
+pallet-timestamp = { version = "4.0.0-dev", default-features = false, path = "../../frame/timestamp" }
+pallet-sudo = { version = "4.0.0-dev", path = "../../frame/sudo", default-features = false }
+pallet-vesting = { version = "4.0.0-dev", default-features = false, path = "../../frame/vesting" }
+
+runtime-common = { package = "polkadot-runtime-common", path = "../common", default-features = false }
+primitives = { package = "polkadot-primitives", path = "../../primitives2", default-features = false }
+pallet-xcm = { path = "../../xcm/pallet-xcm", default-features = false }
+polkadot-parachain = { path = "../../parachain", default-features = false }
+polkadot-runtime-parachains = { path = "../parachains", default-features = false }
+xcm-builder = { path = "../../xcm/xcm-builder", default-features = false }
+xcm-executor = { path = "../../xcm/xcm-executor", default-features = false }
+xcm = { path = "../../xcm", default-features = false }
+
+[dev-dependencies]
+hex-literal = "0.3.4"
+tiny-keccak = { version = "2.0.2", features = ["keccak"] }
+keyring = { package = "sp-keyring", version = "7.0.0", path = "../../primitives/keyring" }
+sp-trie = { version = "7.0.0", default-features = false ,path = "../../primitives/trie" }
+serde_json = "1.0.81"
+
+[build-dependencies]
+substrate-wasm-builder = { version = "5.0.0-dev", path = "../../utils/wasm-builder" }
+
+[features]
+default = ["std"]
+no_std = []
+only-staking = []
+runtime-metrics = ["polkadot-runtime-parachains/runtime-metrics", "sp-io/with-tracing"]
+
+std = [
+	"authority-discovery-primitives/std",
+	"pallet-authority-discovery/std",
+	"beefy-primitives/std",
+	"bitvec/std",
+	"smallvec",
+	"primitives/std",
+	"rustc-hex/std",
+	"parity-scale-codec/std",
+	"polkadot-runtime-parachains/std",
+	"scale-info/std",
+	"inherents/std",
+	"sp-core/std",
+	"polkadot-parachain/std",
+	"pallet-xcm/std",
+	"xcm-builder/std",
+	"xcm-executor/std",
+	"xcm/std",
+	"sp-api/std",
+	"tx-pool-api/std",
+	"block-builder-api/std",
+	"offchain-primitives/std",
+	"sp-std/std",
+	"sp-mmr-primitives/std",
+	"sp-io/std",
+	"frame-support/std",
+	"pallet-authorship/std",
+	"pallet-balances/std",
+	"pallet-transaction-payment/std",
+	"pallet-transaction-payment-rpc-runtime-api/std",
+	"frame-executive/std",
+	"pallet-grandpa/std",
+	"pallet-indices/std",
+	"pallet-offences/std",
+	"sp-runtime/std",
+	"sp-staking/std",
+	"pallet-session/std",
+	"pallet-staking/std",
+	"frame-system/std",
+	"frame-system-rpc-runtime-api/std",
+	"test-runtime-constants/std",
+	"pallet-timestamp/std",
+	"sp-version/std",
+	"pallet-vesting/std",
+	"serde_derive",
+	"serde/std",
+	"pallet-babe/std",
+	"babe-primitives/std",
+	"sp-session/std",
+	"runtime-common/std",
+	"log/std",
+	"frame-election-provider-support/std",
+	"pallet-sudo/std",
+]

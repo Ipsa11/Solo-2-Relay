@@ -1,0 +1,31 @@
+[package]
+name = "xcm-simulator-fuzzer"
+description = "Examples of xcm-simulator usage."
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "3.0.0" }
+honggfuzz = "0.5.55"
+scale-info = { version = "2.1.2", features = ["derive"] }
+
+frame-system = {version = "4.0.0-dev", path = "../../../frame/system" }
+frame-support = { version = "4.0.0-dev", path = "../../../frame/support" }
+pallet-balances = { version = "4.0.0-dev", path = "../../../frame/balances" }
+sp-std = { version = "5.0.0",  path = "../../../primitives/std" }
+sp-core = { version = "7.0.0", path = "../../../primitives/core"}
+sp-runtime = {  version = "7.0.0",  path = "../../../primitives/runtime" }
+sp-io = {version = "7.0.0", path = "../../../primitives/io" }
+
+xcm = { path = "../../" }
+xcm-simulator = { path = "../" }
+xcm-executor = { path = "../../xcm-executor" }
+xcm-builder = { path = "../../xcm-builder" }
+pallet-xcm = { path = "../../pallet-xcm" }
+polkadot-core-primitives = { path = "../../../core-primitives" }
+polkadot-runtime-parachains = { path = "../../../runtime2/parachains" }
+polkadot-parachain = { path = "../../../parachain" }
+
+[[bin]]
+path = "src/fuzz.rs"
+name = "xcm-fuzzer"

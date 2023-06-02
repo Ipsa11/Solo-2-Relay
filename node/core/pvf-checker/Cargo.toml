@@ -1,0 +1,27 @@
+[package]
+name = "polkadot-node-core-pvf-checker"
+version = "0.9.36"
+edition = "2021"
+
+[dependencies]
+futures = "0.3.21"
+thiserror = "1.0.31"
+gum = { package = "tracing-gum", path = "../../gum" }
+
+polkadot-node-primitives = { path = "../../primitives" }
+polkadot-node-subsystem = { path = "../../subsystem" }
+polkadot-primitives = { path = "../../../primitives2" }
+polkadot-node-subsystem-util = { path = "../../subsystem-util" }
+polkadot-overseer = { path = "../../overseer" }
+
+sp-keystore = { version = "0.13.0", path = "../../../primitives/keystore" }
+
+[dev-dependencies]
+sp-core = {version = "7.0.0", path = "../../../primitives/core"}
+sp-runtime = { version = "7.0.0", path = "../../../primitives/runtime"  }
+sc-keystore = {  version = "4.0.0-dev", path = "../../../client/keystore" }
+sp-keyring = { version = "7.0.0", path = "../../../primitives/keyring" }
+polkadot-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers"}
+test-helpers = { package = "polkadot-primitives-test-helpers", path = "../../../primitives2/test-helpers" }
+sp-application-crypto = { version = "7.0.0", path = "../../../primitives/application-crypto" }
+futures-timer = "3.0.2"
